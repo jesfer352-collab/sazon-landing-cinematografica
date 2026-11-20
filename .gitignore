@@ -1,0 +1,6 @@
+# Solo para elegir música en local; no forman parte de la web
+opciones-sonido.html
+audio/opciones/
+# Por si acaso
+.env
+*.log

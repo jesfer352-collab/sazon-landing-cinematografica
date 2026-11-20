@@ -1,0 +1,7 @@
+{
+ "cantidad": 110,
+ "ancho": 1280,
+ "alto": 720,
+ "patron": "frame_{n}.webp",
+ "digitos": 4
+}

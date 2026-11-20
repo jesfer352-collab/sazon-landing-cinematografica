@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sazón 2.0 · Tu semana resuelta por $7</title>
+  <meta name="description" content="120 recetas peruanas, el menú de la semana en un toque, el costo de cada plato y la lista de compras por WhatsApp. Pago único de $7.">
+  <meta name="theme-color" content="#140c07">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Serif:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="frames/frame_0001.webp" media="(min-aspect-ratio: 10/11)">
+  <link rel="preload" as="image" href="frames-movil/frame_0001.webp" media="(max-aspect-ratio: 10/11)">
+  <link rel="stylesheet" href="estilos.css?v=3">
+  <link rel="stylesheet" href="sazon.css?v=4">
+  <!-- Meta Pixel (Sazón) — el mismo de la campaña actual -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','1077704114909198');fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1077704114909198&ev=PageView&noscript=1" /></noscript>
+</head>
+<body>
+
+  <div id="cargador" aria-live="polite">
+    <div class="cargador-marca">Sazón</div>
+    <div class="cargador-barra"><span id="cargador-progreso"></span></div>
+    <div class="cargador-texto"><span id="cargador-pct">0</span>%</div>
+  </div>
+
+  <header class="barra">
+    <a class="marca" href="#">Sazón <span class="marca-version">2.0</span></a>
+    <a class="boton boton-chico" href="#precio">Quiero Sazón · $7</a>
+  </header>
+
+  <button id="sonido" class="sonido" type="button" aria-pressed="false" hidden>
+    <span class="sonido-ondas" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="sonido-texto">Activar sonido</span>
+  </button>
+
+  <!-- ===================== 1. ESCENA DE CINE ===================== -->
+  <section id="cine" class="cine" aria-label="Presentación">
+    <div class="pegajoso">
+      <canvas id="lienzo" aria-hidden="true"></canvas>
+      <div class="vineta" aria-hidden="true"></div>
+      <div class="cine-fundido" id="cine-fundido" aria-hidden="true"></div>
+
+      <div class="hud hud-gancho" data-desde="0" data-hasta="0.16" data-lado="centro">
+        <p class="etiqueta">Sazón 2.0 · 120 recetas peruanas</p>
+        <h1 class="titular">Deja de pensar<br><em>qué cocinar</em></h1>
+        <p class="subtitulo">Tu semana resuelta y tu bolsillo en orden. Pago único de $7.</p>
+      </div>
+
+      <div class="hud hud-caja" data-desde="0.24" data-hasta="0.46" data-lado="izq">
+        <p class="etiqueta">8 de la noche</p>
+        <h2>Cansada, con la refri a medias…</h2>
+        <p>…y otra vez la misma pregunta: <strong>¿qué cocino hoy?</strong> Terminas pidiendo delivery o repitiendo lo de siempre.</p>
+      </div>
+
+      <div class="hud hud-caja" data-desde="0.52" data-hasta="0.72" data-lado="der">
+        <p class="etiqueta">La respuesta está en tu celular</p>
+        <h2>Abre Sazón y decide en segundos</h2>
+        <ul class="lista-check">
+          <li>Buscas tu antojo</li>
+          <li>Ves cuánto te cuesta</li>
+          <li>Te llevas la lista justa</li>
+        </ul>
+      </div>
+
+      <div class="hud hud-final" data-desde="0.8" data-hasta="1.01" data-lado="centro">
+        <p class="etiqueta">Mira cómo funciona</p>
+        <h2>Busquemos un <em>lomo saltado</em></h2>
+      </div>
+
+      <div class="indicador" aria-hidden="true"><span>Desliza</span><i></i></div>
+      <div class="progreso-cine" aria-hidden="true"><span id="progreso-cine"></span></div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. LA APP EN ACCIÓN ===================== -->
+  <section id="app" class="app-escena" aria-label="Demostración de la app">
+    <div class="app-pegajoso">
+      <div class="app-pasos" aria-live="polite">
+        <div class="paso" data-paso="0"><span class="paso-num">1</span><h3>Busca tu antojo</h3><p>Escribe lo que se te antoja: lomo, chaufa, ají de gallina…</p></div>
+        <div class="paso" data-paso="1"><span class="paso-num">2</span><h3>Ábrelo y mira cuánto cuesta</h3><p>Cada plato trae su costo estimado antes de ir al mercado.</p></div>
+        <div class="paso" data-paso="2"><span class="paso-num">3</span><h3>Lee los ingredientes…</h3><p>…cantidades exactas para tu familia. Ahora sigue bajando: <strong>van directo a tu lista.</strong></p></div>
+      </div>
+
+      <div class="telefono" id="telefono" aria-hidden="true">
+        <div class="telefono-pantalla">
+          <!-- Pantalla 1: recetario -->
+          <div class="pantalla pantalla-inicio" id="pantalla-inicio">
+            <div class="app-cabecera">
+              <div class="app-titulo"><span>👨‍🍳</span> Sazón</div>
+              <div class="app-sub">Criolla · Chifa · Sopas · A la carta · Ceviches · Brasas</div>
+              <div class="app-pildora">✨ Tu semana resuelta y tu bolsillo en orden</div>
+            </div>
+            <div class="app-buscador"><span class="lupa">🔍</span><span id="busqueda" class="busqueda" data-vacio="Buscar lomo saltado, chaufa…"></span><i class="cursor"></i></div>
+            <div class="app-chips"><span class="chip activo">Todas</span><span class="chip">🥘 Criolla</span><span class="chip">🥡 Chifa</span><span class="chip">🍲 Sopas</span></div>
+            <div class="app-lista" id="app-lista"></div>
+          </div>
+          <!-- Pantalla 2: receta -->
+          <div class="pantalla pantalla-receta" id="pantalla-receta">
+            <div class="receta-scroll" id="receta-scroll">
+              <div class="receta-foto"><img src="img/plato_lomo.webp" alt=""><div class="receta-foto-texto"><b>Lomo Saltado</b><span>El clásico salteado de carne, cebolla, tomate y papas fritas, a fuego alto.</span></div></div>
+              <div class="receta-meta"><span>⏱ 30 min</span><span>🔥 Fácil</span><span class="costo">≈ S/ 34</span></div>
+              <div class="receta-porciones"><span>Porciones</span><div><b>−</b> 4 personas <b>+</b></div></div>
+              <h4 class="receta-h">Ingredientes</h4>
+              <ul class="receta-ingredientes" id="receta-ingredientes"></ul>
+            </div>
+          </div>
+          <div class="app-nav"><span class="activo">👨‍🍳<br>Recetario</span><span>📅<br>Mi semana</span><span>📷<br>Evidencias</span></div>
+          <div class="toque" id="toque"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. LA LISTA (los ingredientes caen aquí) ===================== -->
+  <section id="lista" class="seccion seccion-lista">
+    <div class="contenedor lista-grid">
+      <div class="lista-texto">
+        <p class="etiqueta">Lista por WhatsApp</p>
+        <h2 class="titulo-seccion">Los ingredientes caen <em>solos</em> a tu lista</h2>
+        <p class="lista-desc">Sazón junta todo lo que necesitas, lo ordena por <b>mercado</b> y <b>bodega</b>, calcula cuánto vas a gastar y te lo manda al WhatsApp. Compras solo lo que vas a usar.</p>
+      </div>
+      <div class="wsp" id="wsp">
+        <div class="wsp-cabecera"><span class="wsp-avatar">👨‍🍳</span><div><b>Sazón</b><small>lista de compras</small></div></div>
+        <div class="wsp-burbuja" id="wsp-burbuja"></div>
+      </div>
+      <div class="lista-card" id="lista-card">
+        <div class="lista-card-cab">
+          <div><small>Lista de compras</small><b>Lomo saltado · 4 personas</b></div>
+          <span class="lista-total-chip">≈ S/ <span id="lista-total">34.00</span></span>
+        </div>
+        <h4 class="lista-grupo">🧺 Mercado</h4>
+        <ul class="lista-items" id="lista-mercado"></ul>
+        <h4 class="lista-grupo">🏪 Bodega</h4>
+        <ul class="lista-items" id="lista-bodega"></ul>
+        <div class="lista-pie">
+          <span>Total estimado</span><b>S/ 34.00</b>
+        </div>
+        <a class="boton boton-wsp" href="#precio">Enviar por WhatsApp</a>
+        <p class="nota">Precios estimados de mercados de Lima. Pones los de tu mercado y Sazón recalcula todo.</p>
+      </div>
+    </div>
+    <div class="volando" id="volando" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===================== 4. FUNCIONES ===================== -->
+  <section id="incluye" class="seccion">
+    <div class="contenedor">
+      <p class="etiqueta revelar">Y eso es solo una receta</p>
+      <h2 class="titulo-seccion revelar">Todo lo que hace Sazón por ti</h2>
+      <div class="rejilla funciones">
+        <article class="tarjeta revelar"><span class="ico">✨</span><h3>Semana en 1 toque</h3><p>Llena los 7 días con platos variados: criolla, chifa, sopas, ceviches. Sabes qué cocinar cada día.</p></article>
+        <article class="tarjeta revelar"><span class="ico">💰</span><h3>Costo de cada plato</h3><p>Precio estimado del plato y de toda la semana, antes de salir de casa. Y la quincena alcanza.</p></article>
+        <article class="tarjeta revelar"><span class="ico">🛒</span><h3>Lista por WhatsApp</h3><p>La lista justa, ordenada por mercado y bodega, lista para mandar o llevar en el celular.</p></article>
+        <article class="tarjeta tarjeta-chef revelar">
+          <span class="ico">👨‍🍳</span><h3>Chef Sazón</h3><p>Le dices qué tienes en la refri y te dice qué cocinar.</p>
+          <div class="chat">
+            <div class="msg yo">Tengo pollo, papa y arroz 🤔</div>
+            <div class="msg chef">¡Te sale un <b>arroz con pollo</b>! 50 min · 4 pers. ¿Te paso la receta?</div>
+          </div>
+        </article>
+        <article class="tarjeta revelar"><span class="ico">📖</span><h3>120 recetas peruanas</h3><p>Con foto y paso a paso, nada al ojo. Criolla, chifa, sopas, a la carta, ceviches y brasas.</p></article>
+        <article class="tarjeta revelar"><span class="ico">👨‍👩‍👧‍👦</span><h3>De 1 a 20 personas</h3><p>Cambias las porciones y Sazón recalcula cantidades y costo. Y llevas el control de gastos del mes.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. CÓMO FUNCIONA ===================== -->
+  <section id="como" class="seccion seccion-como">
+    <div class="contenedor">
+      <p class="etiqueta revelar">Así de simple</p>
+      <h2 class="titulo-seccion revelar">Decide el domingo, come rico toda la semana</h2>
+      <ol class="pasos-como">
+        <li class="revelar"><span>1</span><h3>Arma la semana</h3><p>Un toque y tienes 7 días de platos variados.</p></li>
+        <li class="revelar"><span>2</span><h3>Revisa el gasto</h3><p>Ves cuánto cuesta cada plato y la semana entera.</p></li>
+        <li class="revelar"><span>3</span><h3>Manda la lista</h3><p>Por WhatsApp, ordenada por mercado y bodega.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 6. PRECIO ===================== -->
+  <section id="precio" class="seccion seccion-precio">
+    <div class="contenedor estrecho">
+      <div class="precio-caja revelar">
+        <p class="etiqueta">Pago único · sin mensualidades</p>
+        <h2>Sazón 2.0</h2>
+        <div class="precio">
+          <span class="precio-ahora">$7</span>
+          <span class="precio-local">≈ S/ 27</span>
+        </div>
+        <ul class="lista-check">
+          <li>120 recetas peruanas con foto y paso a paso</li>
+          <li>Semana armada automáticamente en un toque</li>
+          <li>Costo estimado de cada plato y de la semana</li>
+          <li>Lista de compras por mercado y bodega, para WhatsApp</li>
+          <li>Chef Sazón: qué cocinar con lo que hay en la refri</li>
+          <li>Control de gastos y presupuesto del mes</li>
+          <li>Porciones de 1 a 20 personas</li>
+        </ul>
+        <a class="boton boton-grande" id="cta-compra" href="https://pay.hotmart.com/E107447466D?checkoutMode=10">Quiero Sazón por $7 →</a>
+        <div class="yape">
+          <b class="yape-t">📱 ¿Pagas con Yape? Así es más fácil:</b>
+          <ol>
+            <li><b>Antes de pagar</b>, abre tu app Yape → menú → <b>«Aprobar compras»</b>.</li>
+            <li>Copia el <b>código de aprobación</b> (dura unos minutos).</li>
+            <li>Vuelve aquí, toca el botón, elige <b>Yape</b> y pega tu número y el código.</li>
+            <li>Toca <b>«Confirmar pago»</b> y listo.</li>
+          </ol>
+          <p class="yape-tarjeta">💳 ¿Más rápido? Paga con tarjeta en 1 minuto, sin salir de la página.</p>
+        </div>
+        <p class="nota">🔒 Pago seguro con Hotmart · Te llega el acceso a tu correo (revisa Spam si no lo ves)</p>
+        <div class="garantia"><img src="img/sello_garantia.webp" alt="Garantía de 7 días" width="72" height="72"><p><b>Garantía de 7 días.</b> Si Sazón no es para ti, pides tu reembolso desde Hotmart.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. FAQ ===================== -->
+  <section id="faq" class="seccion">
+    <div class="contenedor estrecho">
+      <p class="etiqueta revelar">Preguntas frecuentes</p>
+      <h2 class="titulo-seccion revelar">Resolvemos tus dudas</h2>
+      <div class="faq">
+        <details class="revelar"><summary>¿Es pago único?</summary><p>Sí. Pagas $7 una sola vez, sin mensualidades ni anuncios.</p></details>
+        <details class="revelar"><summary>¿Tengo que descargar algo?</summary><p>No. Sazón se abre en el navegador de cualquier celular o computadora.</p></details>
+        <details class="revelar"><summary>¿Los precios de los platos son exactos?</summary><p>Son estimados de mercados de Lima. Puedes poner los precios de tu mercado y Sazón recalcula todo.</p></details>
+        <details class="revelar"><summary>¿Cómo pago con Yape?</summary><p>En tu app Yape entra al menú y toca «Aprobar compras». Copia el código de aprobación (dura unos minutos), vuelve a la página de pago, elige Yape, pon tu número y el código, y toca «Confirmar pago». Si la página se recarga, vuelve a tocar el botón de compra y repite los pasos.</p></details>
+        <details class="revelar"><summary>¿Cómo recibo mi acceso?</summary><p>Te llegan dos correos: la confirmación de Hotmart y tu acceso a Sazón. Si no los ves, revisa Spam o Promociones.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pie">
+    <p>Sazón · Recetario criollo digital<br>Sazón 2.0 · $7 · Pago único · Garantía 7 días</p>
+  </footer>
+
+  <a class="cta-flotante" id="cta-flotante" href="#precio">Quiero Sazón · $7</a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="app.js?v=5"></script>
+  <script src="sazon.js?v=3"></script>
+</body>
+</html>
